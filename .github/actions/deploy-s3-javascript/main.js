@@ -7,6 +7,9 @@ function run() {
   const dist = core.getInput("dist-folder", { required: true });
   core.notice("Hello from my custom JS action!");
   core.notice(JSON.stringify({ bucket, region, dist }));
+
+  const websiteURl = "https://website-url.com";
+  core.setOutput("website-url", websiteURl);
 }
 
 run();

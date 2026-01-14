@@ -68,8 +68,11 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Run custom action
+        id: deploy
         uses: ./.github/actions/deploy-s3-javascript
         with:
           bucket: 'b-1'
           region: 'r-1'
           dist-folder: 'd-1'
+      - name: Deploy output
+        run:  echo " ${{ steps.deploy.outputs.website-url }}"
